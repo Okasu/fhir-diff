@@ -20,9 +20,11 @@ Run following command to install npm dependencies:
 
     lein npm install
 
-To start a web server for the application, run:
+To start a web server for the application in development mode, run:
 
-    lein ring server
+    lein dev
+    
+Application should be app and running on [localhost:3000](localhost:3000).
 
 ## License
 
