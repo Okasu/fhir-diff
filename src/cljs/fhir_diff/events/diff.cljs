@@ -13,7 +13,8 @@
  ::send-files-success
  (fn [cofx [_ data]]
    {:db (assoc (:db cofx) :diff data :fhir-files-uploading? false)
-    :dispatch [::routes/navigate "/diff"]}))
+    :dispatch-n [[::select-resource nil]
+                 [::routes/navigate "/diff"]]}))
 
 (rf/reg-event-db
  ::select-resource
