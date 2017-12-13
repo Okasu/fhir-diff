@@ -82,6 +82,12 @@
       (is (= correct-changed-resources
              (->> (get diff "changed-resources") keys (map name) (into (sorted-set)))))))
 
+  (testing "same file"
+    (let [file-a (test-resource "profiles-resources-1.8.0.json")
+          file-b (test-resource "profiles-resources-1.8.0.json")
+          diff (diff-response-body {"file-a" file-a "file-b" file-b})]
+      (is (= diff {"added-resources" nil "removed-resources" nil "changed-resources" {}}))))
+
   (testing "invalid json"
     (let [invalid (test-resource "invalid.json")
           diff (diff-response {"file-a" invalid "file-b" invalid})]

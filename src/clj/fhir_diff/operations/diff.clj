@@ -32,7 +32,9 @@
   (reduce (fn [diff resource]
             (let [[removed added] (d/diff (get definitions-a resource)
                                           (get definitions-b resource))]
-              (assoc diff resource {:added added :removed removed})))
+              (if (and removed added)
+                (assoc diff resource {:added added :removed removed})
+                diff)))
           (sorted-map) changed-resources))
 
 (defn diff [data-a data-b]
