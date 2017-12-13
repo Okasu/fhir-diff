@@ -23,7 +23,7 @@
       [:p {:class "text-justify"}
        "Also you can download unpacked JSON files with FHIR definitions for versions
       1.0.2 and 1.8.0 from "
-       [:a {:href "https://github.com/Okasu/fhir-diff/tree/master/test-resources"} "here"]
+       [:a {:href "https://github.com/gsmnv/fhir-diff/tree/master/test-resources"} "here"]
        "."]
       [:hr]
       [:form {:on-submit on-uploader-submit}

@@ -34,7 +34,7 @@
 
   :aliases {"dev" ["do" "clean"
                    ["pdo"
-                    ["run"]
+                    ["ring" "server-headless"]
                     ["less" "auto"]]]}
 
   :cljsbuild
@@ -62,13 +62,14 @@
 
   :profiles
   {:uberjar
-   {:main fhir-diff.core/-prod-main
-    :prep-tasks [["cljsbuild" "once" "min"] ["less" "once"] "compile"]}
+   {:prep-tasks [["cljsbuild" "once" "min"] ["less" "once"] "compile"]}
 
    :dev
    {:prep-tasks [["cljsbuild" "once" "dev"] ["less" "once"] "compile"]
+    :ring {:handler fhir-diff.core/dev-handler}
+    :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
     :dependencies [[com.cemerick/piggieback "0.2.1"]
-                        [figwheel-sidecar "0.5.14"]
-                        [binaryage/devtools "0.9.8"]
-                        [re-frisk "0.5.3"]
-                        [peridot "0.5.0"]]}})
+                   [figwheel-sidecar "0.5.14"]
+                   [binaryage/devtools "0.9.8"]
+                   [re-frisk "0.5.3"]
+                   [peridot "0.5.0"]]}})

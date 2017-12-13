@@ -28,7 +28,7 @@ Application should be app and running on [localhost:3000](http://localhost:3000/
 
 ## License
 
-Copyright (c) 2017 Okasu
+Copyright (c) 2017 George Semenov
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
