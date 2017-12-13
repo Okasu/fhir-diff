@@ -24,7 +24,7 @@ To start a web server for the application in development mode, run:
 
     lein dev
     
-Application should be app and running on [localhost:3000](localhost:3000).
+Application should be app and running on [localhost:3000](http://localhost:3000/).
 
 ## License
 

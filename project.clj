@@ -62,11 +62,11 @@
 
   :profiles
   {:uberjar
-   {:prep-tasks [["cljsbuild" "once" "min"] ["less" "once"] "compile"]}
+   {:main fhir-diff.core/-prod-main
+    :prep-tasks [["cljsbuild" "once" "min"] ["less" "once"] "compile"]}
 
    :dev
-   {:main fhir-diff.core/-dev-main
-    :prep-tasks [["cljsbuild" "once" "dev"] ["less" "once"] "compile"]
+   {:prep-tasks [["cljsbuild" "once" "dev"] ["less" "once"] "compile"]
     :dependencies [[com.cemerick/piggieback "0.2.1"]
                         [figwheel-sidecar "0.5.14"]
                         [binaryage/devtools "0.9.8"]

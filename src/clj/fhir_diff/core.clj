@@ -30,8 +30,8 @@
       wrap-multipart-params
       wrap-json-response))
 
-(defn -main [port]
+(defn -prod-main [port]
   (jetty/run-jetty app {:port (Integer. port)}))
 
-(defn -dev-main []
+(defn -main []
   (jetty/run-jetty (wrap-reload #'app) {:port 3000}))
