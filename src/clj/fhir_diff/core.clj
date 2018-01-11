@@ -5,7 +5,6 @@
             [ring.adapter.jetty :as jetty]
             [ring.logger :refer [wrap-with-logger]]
             [fhir-diff.controllers.api.diff :refer [diff-handler]]
-            [fhir-diff.middleware.wrap-errors :refer [wrap-api-error-handling]]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.multipart-params :refer [wrap-multipart-params]]
             [ring.middleware.json :refer [wrap-json-response]])
@@ -18,9 +17,7 @@
 
 (defroutes app-routes
   (GET "/" [] (resource-response "index.html" {:root "public"}))
-  (wrap-routes
-   (context "/api" [] (api-routes))
-   wrap-api-error-handling)
+  (context "/api" [] (api-routes))
   (route/resources "/")
   (route/not-found "Not Found"))
 

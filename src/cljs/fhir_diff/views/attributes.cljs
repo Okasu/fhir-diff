@@ -54,9 +54,8 @@
      [change-descriptions attribute changes to])])
 
 (defn diff [resource]
-  (when-let [{:keys [added removed] from :changed-from to :changed-to}
-             (present-changes resource)]
+  (when-let [{:keys [added removed changed-from changed-to]} (present-changes resource)]
     [:div {:class "row"}
      [column-list-items "Added" (keys added) "list-group-item-success"]
      [column-list-items "Removed" (keys removed) "list-group-item-danger"]
-     [change-list from to]]))
+     [change-list changed-from changed-to]]))
