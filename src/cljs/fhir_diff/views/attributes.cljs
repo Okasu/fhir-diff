@@ -33,7 +33,7 @@
     :short (str "Short description changed from \"" from "\" to \"" to "\"")
     (str (capitalize (name key)) " changed from " from " to " to)))
 
-(defn filter-descriptions [changes attribute to]
+(defn filter-descriptions [attribute changes to]
   (for [[key value] changes
         :let [from-value (attribute-value key value)
               to-value (attribute-value key (-> to attribute key))]
@@ -41,7 +41,7 @@
     (change-description key from-value to-value)))
 
 (defn change-descriptions [attribute changes to]
-  (let [descriptions (filter-descriptions changes attribute to)]
+  (let [descriptions (filter-descriptions attribute changes to)]
     (when (not (empty? descriptions))
       [:li {:class "list-group-item list-group-item-primary"}
        [:h5 attribute]
